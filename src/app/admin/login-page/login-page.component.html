@@ -1,1 +1,23 @@
-<p>login-page works!</p>
+<div class='container'>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h2>Login</h2>
+        <div class='form-control'>
+            <label for='email'>Email</label>
+            <input type="email" formControlName='email' id='email' />
+            <div *ngIf="isSubmitted && f.email.errors" class='validation'>
+                <small *ngIf="f.email.email">Enter Email</small>
+                <small *ngIf="f.email.required">Enter Valid Email</small>
+            </div>
+        </div>
+        <div class='form-control'>
+            <label for='password'>Password</label>
+            <input type="password" formControlName='password' id='password' />
+            <div *ngIf="isSubmitted && f.password.errors" class='validation'>
+                <small *ngIf="f.password.required">Enter Password</small>
+                <small *ngIf="f.password.passowrd">Password Lenght is not correct</small>
+            </div>
+        </div>
+
+        <button class='btn btn-primary' type="submit" [disabled]="!loginForm.valid">Login</button>
+    </form>
+</div>
