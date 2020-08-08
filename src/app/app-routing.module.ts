@@ -28,6 +28,11 @@ const routes: Routes = [
         component: CartPageComponent
       }
     ]
+  },
+  {
+    path: 'admin',
+    // loadChildren: './admin/admin.module#AdminModule'
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   }
 ];
 
