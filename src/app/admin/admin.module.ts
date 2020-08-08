@@ -7,10 +7,13 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { OrderProductComponent } from './order-product/order-product.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
  
 @NgModule({
     imports: [ 
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forChild([
             {
                 path: '',
@@ -47,6 +50,6 @@ import { OrderProductComponent } from './order-product/order-product.component'
      ],
     exports: [RouterModule],
     providers: [],
-    declarations: [AddProductComponent, DashboardComponent, EditProductComponent, OrderProductComponent, AdminLayoutComponent],
+    declarations: [AddProductComponent, DashboardComponent, EditProductComponent, OrderProductComponent, AdminLayoutComponent, LoginPageComponent],
 })
 export class AdminModule {}
