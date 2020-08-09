@@ -37,20 +37,18 @@ export class LoginPageComponent implements OnInit {
     this.isSubmitted = true;
     const user = {
       email: this.loginForm.value.email,
-      password: this.loginForm.value.password
+      password: this.loginForm.value.password,
+      returnSecureToken: true,
     }
 
     this.authService.login(user).subscribe(res => {
       this.loginForm.reset();
+      console.log(res);
       this.router.navigate(['/admin', 'dashboard']);
       this.isSubmitted = false;
     }, () => {
       this.isSubmitted = false;
-    })
-
-    // display form values on success
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value, null, 4));
-    
+    })    
 }
 
 onReset() {
