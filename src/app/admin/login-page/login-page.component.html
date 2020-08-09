@@ -14,7 +14,7 @@
             <input type="password" formControlName='password' id='password' />
             <div *ngIf="isSubmitted && f.password.errors" class='validation'>
                 <small *ngIf="f.password.required">Enter Password</small>
-                <small *ngIf="f.password.passowrd">Password Lenght is not correct</small>
+                <small *ngIf="f.password.password">Password Lenght is not correct</small>
             </div>
         </div>
 
