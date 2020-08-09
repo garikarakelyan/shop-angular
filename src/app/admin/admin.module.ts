@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { OrderProductComponent } from './order-product/order-product.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { AuthGuard } from '../shared/auth.guard'
  
 @NgModule({
     imports: [ 
@@ -30,19 +31,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
                     },
                     {
                         path: 'dashboard',
-                        component: DashboardComponent
+                        component: DashboardComponent,
+                        canActivate: [AuthGuard]
                     },
                     {
                         path: 'product/:id/edit',
-                        component: EditProductComponent
+                        component: EditProductComponent,
+                        canActivate: [AuthGuard]
                     },
                     {
                         path: 'add',
-                        component: AddProductComponent
+                        component: AddProductComponent,
+                        canActivate: [AuthGuard]
                     },
                     {
-                        path: 'order',
-                        component: OrderProductComponent
+                        path: 'orders',
+                        component: OrderProductComponent,
+                        canActivate: [AuthGuard]
                     },
                 ]
             },
