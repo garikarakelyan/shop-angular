@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiKey: "AIzaSyDtMmEXGk5t3NHAuwBUE2WxvNvAXtNhwmE",};
+  apiKey: "AIzaSyDtMmEXGk5t3NHAuwBUE2WxvNvAXtNhwmE",
+  dbUrl: "https://online-shop-a7d93.firebaseio.com/"
+};
 
 /*
  * For easier debugging in development mode, you can import the following file

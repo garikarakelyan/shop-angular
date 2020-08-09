@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
+import { ProductService } from './../../shared/product.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -11,7 +13,10 @@ export class AddProductComponent implements OnInit {
   productForm: FormGroup
   isSubmitted: boolean = false;
 
-  constructor() { }
+  constructor(
+    private productService: ProductService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -27,26 +32,29 @@ export class AddProductComponent implements OnInit {
     })
   }
 
-  get f() { return this.productForm.controls; }
-
   onSubmit() {
     if (this.productForm.invalid) {
         return;
     }
+    this.isSubmitted = true;
     const product = {
       type: this.productForm.value.type,
       title: this.productForm.value.title,
       photo: this.productForm.value.photo,
       info: this.productForm.value.info,
       price: this.productForm.value.price,
+      date: new Date()
     }
 
-    console.log(this.productForm)
-
+    this.productService.create(product).subscribe(res => {
+      this.productForm.reset();
+      this.isSubmitted = false;
+      this.router.navigate(['/'])
+    })
 }
 
 onReset() {
-  
+
 }
 
 }
