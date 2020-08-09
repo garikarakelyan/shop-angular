@@ -9,12 +9,15 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { OrderProductComponent } from './order-product/order-product.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AuthGuard } from '../shared/auth.guard'
+import { QuillModule } from 'ngx-quill'
+
  
 @NgModule({
     imports: [ 
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        QuillModule.forRoot(),
         RouterModule.forChild([
             {
                 path: '',
