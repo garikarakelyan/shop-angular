@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/shared/auth.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
@@ -15,7 +16,9 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+    ) { }
 
   ngOnInit() {
     this.buildForm();
@@ -28,8 +31,6 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  get f() { return this.loginForm.controls; }
-
   onSubmit() {
     if (this.loginForm.invalid) {
         return;
@@ -41,13 +42,15 @@ export class LoginPageComponent implements OnInit {
       returnSecureToken: true,
     }
 
-    this.authService.login(user).subscribe(res => {
-      this.loginForm.reset();
-      this.router.navigate(['/admin', 'dashboard']);
-      this.isSubmitted = false;
-    }, () => {
-      this.isSubmitted = false;
-    })    
+    if (isPlatformBrowser(this.platformId)) {
+      this.authService.login(user).subscribe(res => {
+        this.loginForm.reset();
+        this.router.navigate(['/admin', 'dashboard']);
+        this.isSubmitted = false;
+      }, () => {
+        this.isSubmitted = false;
+      }) 
+    }   
 }
 
 onReset() {
