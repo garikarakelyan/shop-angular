@@ -2,7 +2,6 @@ import { AuthInterseptor } from './shared/auth.interseptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthService } from './shared/auth.service'
 import { AppComponent } from './app.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -25,11 +24,10 @@ import { ProductSingleComponent } from './product-single/product-single.componen
     ProductSingleComponent,
   ],
   imports: [
-    // BrowserModule,
+  	BrowserModule.withServerTransition({appId: 'app-root'}),
     AppRoutingModule,
-     HttpClientModule,
-     QuillModule.forRoot(),
-     BrowserModule.withServerTransition({appId: 'app-root'}),
+    HttpClientModule,
+    QuillModule.forRoot()
   ],
   providers: [
     {
