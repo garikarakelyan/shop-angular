@@ -4,17 +4,17 @@
         <div class='form-control'>
             <label for='email'>Email</label>
             <input type="email" formControlName='email' id='email' />
-            <div *ngIf="isSubmitted && f.email.errors" class='validation'>
-                <small *ngIf="f.email.email">Enter Email</small>
-                <small *ngIf="f.email.required">Enter Valid Email</small>
+            <div *ngIf="isSubmitted && loginForm.get('email').errors" class='validation'>
+                <small *ngIf="loginForm.get('email').errors.required">Enter Email</small>
+                <small *ngIf="loginForm.get('email').errors.email">Enter Valid Email</small>
             </div>
         </div>
         <div class='form-control'>
             <label for='password'>Password</label>
             <input type="password" formControlName='password' id='password' />
-            <div *ngIf="isSubmitted && f.password.errors" class='validation'>
-                <small *ngIf="f.password.required">Enter Password</small>
-                <small *ngIf="f.password.password">Password Lenght is not correct</small>
+            <div *ngIf="isSubmitted && loginForm.get('password').errors" class='validation'>
+                <small *ngIf="loginForm.get('password').errors.required">Enter Password</small>
+                <small *ngIf="loginForm.get('password').errors.password">Password Lenght is not correct</small>
             </div>
         </div>
 

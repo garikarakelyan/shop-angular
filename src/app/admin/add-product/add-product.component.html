@@ -7,15 +7,15 @@
             <option value='Tablet'>Tablet</option>
             <option value='Laptop'>Laptop</option>
         </select>
-        <div *ngIf="isSubmitted && f.type.errors" class='validation'>
-            <small *ngIf="f.type.required">Choose type</small>
+        <div *ngIf="isSubmitted && productForm.get('type').errors" class='validation'>
+            <small *ngIf="productForm.get('type').errors.required">Choose type</small>
         </div>
     </div>
     <div class='form-control'>
         <label for='title'>Name</label>
         <input type="title" formControlName='title' id='title' />
-        <div *ngIf="isSubmitted && f.title.errors" class='validation'>
-            <small *ngIf="f.title.required">Enter Product Name</small>
+        <div *ngIf="isSubmitted && productForm.get('title').errors" class='validation'>
+            <small *ngIf="productForm.get('title').errors.required">Enter Product Name</small>
         </div>
     </div>
     <div class='form-control'>
@@ -30,10 +30,10 @@
     <div class='form-control'>
         <label for='price'>Price</label>
         <input type="price" formControlName='price' id='price' />
-        <div *ngIf="isSubmitted && f.price.errors" class='validation'>
-            <small *ngIf="f.price.required">Price is required</small>
+        <div *ngIf="isSubmitted && productForm.get('price').errors" class='validation'>
+            <small *ngIf="productForm.get('price').errors.required">Price is required</small>
         </div>
     </div>
 
-    <button class='btn btn-primary' type="submit" [disabled]="!productForm.valid">Add</button>
+    <button class='btn btn-primary' type="submit" [disabled]="!productForm.valid || isSubmitted">Add</button>
 </form>
