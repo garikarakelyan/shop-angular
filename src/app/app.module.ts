@@ -9,7 +9,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
+import { ProductSingleComponent } from './product-single/product-single.component'
 
 
 
@@ -21,6 +22,7 @@ import { QuillModule } from 'ngx-quill'
     MainPageComponent,
     ProductPageComponent,
     CartPageComponent,
+    ProductSingleComponent,
   ],
   imports: [
     BrowserModule,
