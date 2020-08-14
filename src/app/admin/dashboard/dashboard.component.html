@@ -1,1 +1,32 @@
-<p>dashboard works!</p>
+<div *ngIf="products?.length; else loading">
+    <h2 class="text-center">Products Dashboard</h2>
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Creation Date</th>
+            <th>View</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor='let product of products; let id = index'>
+                <td>{{id + 1}}</td>
+                <td>{{product.title}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.date}}</td>
+                <td>
+                    <button class="btn btn-dark" (click)="onEdit(product.id)">View</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="onRemove(product.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #loading>
+    <p class="text-center">Loading...</p>
+</ng-template>
