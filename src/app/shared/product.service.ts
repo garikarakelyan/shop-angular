@@ -46,5 +46,13 @@ export class ProductService {
         date: new Date(response.date)
       }
     }))
-}
+  }
+
+  remove(id) {
+    return this.http.delete(`${environment.dbUrl}/products/${id}.json`)
+  }
+
+  update(product: Product) {
+    return this.http.patch(`${environment.dbUrl}/products/${product.id}.json`, product)
+  }
 }

@@ -1,0 +1,8 @@
+.single-item {
+    cursor: pointer;
+    ::ng-deep {
+        .ql-snow .ql-editor img {
+            cursor: pointer;
+        }
+    }
+}
