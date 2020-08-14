@@ -5,7 +5,7 @@
         <thead>
             <th>ID</th>
             <th>Name</th>
-            <th>Price</th>
+            <th>Price($)</th>
             <th>Creation Date</th>
             <th>View</th>
             <th>Delete</th>
@@ -13,9 +13,9 @@
         <tbody>
             <tr *ngFor='let product of products; let id = index'>
                 <td>{{id + 1}}</td>
-                <td>{{product.title}}</td>
+                <td (click)="onEdit(product.id)" style="cursor: pointer;">{{product.title}}</td>
                 <td>{{product.price}}</td>
-                <td>{{product.date}}</td>
+                <td>{{product.date | date : 'short'}}</td>
                 <td>
                     <button class="btn btn-dark" (click)="onEdit(product.id)">View</button>
                 </td>

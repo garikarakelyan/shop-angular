@@ -51,7 +51,7 @@ export class AddProductComponent implements OnInit {
       this.isSubmitted = false;
       this.router.navigate(['/'])
     })
-}
+  }
 
 onReset() {
 
