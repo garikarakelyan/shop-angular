@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   onEdit(id) {
-    this.router.navigate(['/admin','product','product.id','edit'])
+    this.router.navigate(['/admin','product',id,'edit'])
   }
 
   ngOnDestroy() {
