@@ -36,4 +36,15 @@ export class ProductService {
         }))
       }))
   }
+
+  getProduct(id) {
+    return this.http.get(`${environment.dbUrl}/products/${id}.json`)
+    .pipe(map((response: Product) => {
+      return {
+        ...response,
+        id,
+        date: new Date(response.date)
+      }
+    }))
+}
 }
