@@ -1,0 +1,21 @@
+.product {
+    .header {
+        display: flex;
+        align-items: center;
+    }
+    .main-block {
+        justify-content: center;
+    }
+
+    h2 {
+        margin-bottom: .5rem;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.item {
+    width: 50%;
+}
