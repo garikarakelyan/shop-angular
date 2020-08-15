@@ -49,7 +49,7 @@ export class AddProductComponent implements OnInit {
     this.productService.create(product).subscribe(res => {
       this.productForm.reset();
       this.isSubmitted = false;
-      this.router.navigate(['/'])
+      this.router.navigate(['/admin', 'dashboard'])
     })
   }
 

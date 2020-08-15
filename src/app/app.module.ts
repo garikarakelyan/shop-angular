@@ -21,7 +21,7 @@ import { ProductSingleComponent } from './product-single/product-single.componen
     MainPageComponent,
     ProductPageComponent,
     CartPageComponent,
-    ProductSingleComponent,
+    ProductSingleComponent
   ],
   imports: [
   	BrowserModule.withServerTransition({appId: 'app-root'}),
