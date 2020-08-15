@@ -1,6 +1,10 @@
 <div *ngIf="products?.length; else loading">
     <h2 class="text-center">Products Dashboard</h2>
 
+    <div class="form-control">
+        <input type="text" placeholder="Search" [(ngModel)]="productName">
+    </div>
+
     <table>
         <thead>
             <th>ID</th>
@@ -11,7 +15,7 @@
             <th>Delete</th>
         </thead>
         <tbody>
-            <tr *ngFor='let product of products; let id = index'>
+            <tr *ngFor='let product of products | search : productName; let id = index'>
                 <td>{{id + 1}}</td>
                 <td (click)="onEdit(product.id)" style="cursor: pointer;">{{product.title}}</td>
                 <td>{{product.price}}</td>

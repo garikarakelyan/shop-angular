@@ -1,5 +1,5 @@
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
-import { AuthService } from './auth.service';
 import { Injectable, Inject, PLATFORM_ID } from "@angular/core";
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http'
 import { Observable, throwError } from "rxjs";
