@@ -1,3 +1,4 @@
+import { ProductService } from './../shared/services/product.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -10,7 +11,8 @@ export class ProductSingleComponent implements OnInit {
   @Input() product;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private productService: ProductService
   ) { }
 
   ngOnInit(): void {
@@ -19,5 +21,9 @@ export class ProductSingleComponent implements OnInit {
   goToSingle(item) {
     this.router.navigate(['/product', item])
   } 
+
+  addProduct(product) {
+    this.productService.addProduct(product)
+  }
 
 }

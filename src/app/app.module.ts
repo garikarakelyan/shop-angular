@@ -1,3 +1,5 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { SortingPipe } from './shared/sorting.pipe';
 import { AuthInterseptor } from './shared/auth.interseptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,12 +23,14 @@ import { ProductSingleComponent } from './product-single/product-single.componen
     MainPageComponent,
     ProductPageComponent,
     CartPageComponent,
-    ProductSingleComponent
+    ProductSingleComponent,
+    SortingPipe,
   ],
   imports: [
   	BrowserModule.withServerTransition({appId: 'app-root'}),
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     QuillModule.forRoot()
   ],
   providers: [

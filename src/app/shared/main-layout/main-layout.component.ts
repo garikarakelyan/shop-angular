@@ -1,3 +1,5 @@
+import { ProductService } from './../services/product.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-layout.component.scss']
 })
 export class MainLayoutComponent implements OnInit {
+  type;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
   }
+
+  setType(type) {
+    this.type = type;
+    if(this.type !== 'Cart') {
+      this.router.navigate(['/'], {
+        queryParams: {
+          type: this.type
+        }
+      });
+      this.productService.setType(this.type);
+    }
+
+  }
+
+  goToHome() {
+    this.productService.setType('');
+  }
+
+
 
 }

@@ -1,7 +1,7 @@
 import { Product } from './../../shared/models/interfaces';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { switchMap } from 'rxjs/operators';
-import { ProductService } from './../../shared/product.service';
+import { ProductService } from './../../shared/services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 

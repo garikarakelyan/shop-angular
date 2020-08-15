@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { ProductService } from './../../shared/product.service';
+import { ProductService } from './../../shared/services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
