@@ -5,4 +5,11 @@
             cursor: pointer;
         }
     }
+    .product-buttons {
+        display: flex;
+        flex-direction: column;
+        .view-btn {
+            margin-bottom: 10px;
+        }
+    }
 }

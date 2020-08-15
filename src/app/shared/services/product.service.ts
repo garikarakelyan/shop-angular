@@ -1,7 +1,7 @@
-import { Product } from './models/interfaces';
+import { Product } from '.././models/interfaces';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
 
 
@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProductService {
+  public type = '';
+  cartProducts: Product[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -54,5 +56,13 @@ export class ProductService {
 
   update(product: Product) {
     return this.http.patch(`${environment.dbUrl}/products/${product.id}.json`, product)
+  }
+
+  setType(type) {
+    this.type = type;
+  }
+
+  addProduct(product) {
+    this.cartProducts.push(product)
   }
 }

@@ -1,3 +1,4 @@
+import { SearchPipe } from './../shared/search.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -58,6 +59,14 @@ import { QuillModule } from 'ngx-quill'
      ],
     exports: [RouterModule],
     providers: [],
-    declarations: [AddProductComponent, DashboardComponent, EditProductComponent, OrderProductComponent, AdminLayoutComponent, LoginPageComponent],
+    declarations: [
+        AddProductComponent, 
+        DashboardComponent, 
+        EditProductComponent, 
+        OrderProductComponent, 
+        AdminLayoutComponent, 
+        LoginPageComponent, 
+        SearchPipe
+    ],
 })
 export class AdminModule {}
